@@ -27,7 +27,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/products/${params.id}`),
+          fetch(
+            `https://mercedes-benz-server.vercel.app/products/${params.id}`
+          ),
       },
       {
         path: "/register",

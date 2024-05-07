@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:8000",
+  baseURL: "https://mercedes-benz-server.vercel.app",
   withCredentials: true,
 });
 const UseAxiosSecure = () => {

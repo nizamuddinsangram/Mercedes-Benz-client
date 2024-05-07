@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:8000/jwt", loggedEmail, {
+          .post("https://mercedes-benz-server.vercel.app/jwt", loggedEmail, {
             withCredentials: true,
           })
           .then((res) => {
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
           });
       } else {
         axios
-          .post("http://localhost:8000/logout", loggedEmail, {
+          .post("https://mercedes-benz-server.vercel.app/logout", loggedEmail, {
             withCredentials: true,
           })
           .then((res) => {

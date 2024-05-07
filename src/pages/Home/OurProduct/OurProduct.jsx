@@ -5,7 +5,9 @@ const OurProduct = () => {
   const [products, setProduct] = useState();
   useEffect(() => {
     const getData = async () => {
-      const { data } = await axios("http://localhost:8000/products");
+      const { data } = await axios(
+        "https://mercedes-benz-server.vercel.app/products"
+      );
       setProduct(data);
     };
     getData();

@@ -8,7 +8,7 @@ const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const axiosSecure = UseAxiosSecure();
 
-  // const url = `http://localhost:8000/myBooking/${user?.email}`;
+  // const url = `https://mercedes-benz-server.vercel.app/myBooking/${user?.email}`;
 
   useEffect(() => {
     if (user?.email) {
@@ -20,19 +20,23 @@ const MyBookings = () => {
   }, [user?.email, axiosSecure]);
   // console.log(bookings);
   const handleDelete = (id) => {
-    axios.delete(`http://localhost:8000/myBooking/${id}`).then((res) => {
-      console.log(res.data);
-      const remaining = bookings.filter((booking) => booking._id !== id);
-      setBookings(remaining);
-    });
+    axios
+      .delete(`https://mercedes-benz-server.vercel.app/myBooking/${id}`)
+      .then((res) => {
+        // console.log(res.data);
+        const remaining = bookings.filter((booking) => booking._id !== id);
+        setBookings(remaining);
+      });
   };
   const handleBookingConfirm = (id) => {
     axios
-      .patch(`http://localhost:8000/myBooking/${id}`, { status: "confirm" })
+      .patch(`https://mercedes-benz-server.vercel.app/myBooking/${id}`, {
+        status: "confirm",
+      })
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         if (data.data.modifiedCount > 0) {
-          console.log("updated bookings");
+          // console.log("updated bookings");
           const remaining = bookings.filter((booking) => booking._id !== id);
           const updated = bookings.find((booking) => booking._id === id);
           updated.status = "confirm";

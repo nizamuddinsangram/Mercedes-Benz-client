@@ -8,7 +8,7 @@ const Checkout = () => {
   const data = useLoaderData();
   const { user } = useContext(AuthContext);
   const { title, _id, price, img } = data;
-  console.log(data);
+  // console.log(data);
   const handleBookService = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -24,17 +24,17 @@ const Checkout = () => {
       price: price,
       image: img,
     };
-    console.log(booking);
+    // console.log(booking);
     axios
-      .post("http://localhost:8000/bookings", booking)
+      .post("https://mercedes-benz-server.vercel.app/bookings", booking)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertedId) {
           toast.success("booking a new car");
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.message);
       });
   };
   return (
